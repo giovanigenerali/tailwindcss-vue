@@ -1,7 +1,7 @@
 <template>
-  <div id="app" class="bg-gray-300">
+  <div id="app">
     <div class="flex bg-gray-100">
-      <div class="px-8 py-12 max-w-md mx-auto sm:max-w-xl lg:max-w-full lg:w-1/2 lg:py-24 lg:px-12">
+      <div class="px-8 py-12 max-w-md mx-auto sm:max-w-xl lg:max-w-full lg:w-1/2 lg:py-18 lg:px-12">
         <div class="xl:max-w-lg xl:ml-auto">
           <img class="h-10" src="/images/logo.svg" alt="Workcation" />
           <img
