@@ -1,28 +1,118 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="bg-gray-300">
+    >
+    <div class="flex bg-gray-100">
+      <div class="px-8 py-12 max-w-md mx-auto sm:max-w-xl lg:max-w-full lg:w-1/2 lg:py-24 lg:px-12">
+        <div class="xl:max-w-lg xl:ml-auto">
+          <img class="h-10" src="/images/logo.svg" alt="Workcation" />
+          <img
+            class="mt-6 rounded-lg shadow-xl sm:mt-8 sm:h-64 sm:w-full sm:object-cover sm:object-center lg:hidden"
+            src="/images/beach-work.jpg"
+            alt="Woman workcationing on the beach"
+          />
+          <h1
+            class="mt-6 text-2xl font-bold text-gray-900 leading-tight sm:mt-8 sm:text-4xl lg:text-3xl xl:text-4xl"
+          >
+            You can work from anywhere.
+            <br class="hidden lg:inline" />
+            <span class="text-indigo-500">Take advantage of it.</span>
+          </h1>
+          <p
+            class="mt-2 text-gray-600 sm:mt-4 sm:text-xl"
+          >Workcation helps you find work-friendly rentals in beautiful locations so you can enjoy some nice weather even when you're not on vacation.</p>
+          <div class="mt-4 sm:mt-6">
+            <a href="#" class="btn btn-indigo text-white shadow-lg sm:text-base">Book your escape</a>
+            <a href="#" class="ml-2 btn btn-gray sm:text-base">Learn more</a>
+          </div>
+        </div>
+      </div>
+      <div class="hidden lg:block lg:w-1/2 lg:relative">
+        <img
+          class="absolute inset-0 h-full w-full object-cover object-center"
+          src="/images/beach-work.jpg"
+          alt="Woman workcationing on the beach"
+        />
+      </div>
+    </div>
+    <div class="max-w-md sm:max-w-xl lg:max-w-6xl mx-auto px-8 lg:px-12 py-8">
+      <h2 class="text-xl text-gray-900">Popular destinations</h2>
+      <p
+        class="text-gray-600"
+      >A selection of great work-friendly cities with lots to see and explore.</p>
+      <div class="flex flex-wrap -mx-4">
+        <div
+          class="mt-6 w-full px-4 lg:w-1/2 xl:w-1/3"
+          v-for="destination in popularDestinations"
+          :key="destination.id"
+        >
+          <DestinationCard :destination="destination" />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import DestinationCard from "./components/DestinationCard";
 
 export default {
-  name: 'App',
+  name: "app",
   components: {
-    HelloWorld
-  }
-}
+    DestinationCard,
+  },
+  data() {
+    return {
+      popularDestinations: [
+        {
+          id: 1,
+          city: "Toronto",
+          averagePrice: 120,
+          propertyCount: 76,
+          imageUrl: "/images/toronto.jpg",
+          imageAlt: "Toronto skyline",
+        },
+        {
+          id: 2,
+          city: "Malibu",
+          averagePrice: 215,
+          propertyCount: 43,
+          imageUrl: "/images/malibu.jpg",
+          imageAlt: "Cliff in Malibu",
+        },
+        {
+          id: 3,
+          city: "Chicago",
+          averagePrice: 130,
+          propertyCount: 115,
+          imageUrl: "/images/chicago.jpg",
+          imageAlt: "Chicago skyline",
+        },
+        {
+          id: 4,
+          city: "Seattle",
+          averagePrice: 135,
+          propertyCount: 63,
+          imageUrl: "/images/seattle.jpg",
+          imageAlt: "Seattle skyline",
+        },
+        {
+          id: 5,
+          city: "Colorado",
+          averagePrice: 85,
+          propertyCount: 47,
+          imageUrl: "/images/colorado.jpg",
+          imageAlt: "Lake in Colorado",
+        },
+        {
+          id: 6,
+          city: "Miami",
+          averagePrice: 115,
+          propertyCount: 86,
+          imageUrl: "/images/miami.jpg",
+          imageAlt: "Beach in Miami",
+        },
+      ],
+    };
+  },
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
